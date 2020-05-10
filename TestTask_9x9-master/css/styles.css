@@ -1,0 +1,47 @@
+html {
+
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  
+  }
+  
+.container {
+  margin: 0 auto;
+}
+.boxList{
+  margin: 0 auto;
+  display: flex;
+flex-wrap: wrap;
+  width: 600px;
+list-style-type: none;
+}
+.listItem{
+  width: 200px;
+  height: 200px;
+  background-color: rgb(62, 151, 77);
+  border: 1px solid red;
+}
+.arrowList{
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  list-style-type: none;
+
+}
+.arrowItem{
+  border: 1px solid red;
+  width: 120px;
+  height: 120px;
+  background-color: hotpink;
+
+}

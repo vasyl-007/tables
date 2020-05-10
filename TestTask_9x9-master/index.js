@@ -1,7 +1,6 @@
 "use strict";
-// import shortId from "shortid";
-const RANDOM_POSITION = 9;
 
+const RANDOM_POSITION = 9;
 const ARROWS_LIST = 5;
 const arrowList = document.getElementById("arrows");
 
@@ -27,8 +26,34 @@ const getRandomArrows = () => {
   console.log("arrows ---->", arrows);
 
   arrows.map((arrow) => {
+    let action;
+    switch (arrow) {
+      case 1:
+        // action = "Hello!";
+        console.log("123");
+        action = "&#8593;";
+        break;
+      case 2:
+        // action = "Hello!";
+        console.log("123");
+        action = "&#8595;";
+        break;
+      case 3:
+        // action = "Hello!";
+        console.log("123");
+        action = "&#8594;";
+        break;
+      case 4:
+        // action = "Hello!";
+        console.log("123");
+        action = "&#8592;";
+        break;
+      default:
+        console.log("Invalid subscription type");
+    }
+
     const markupArrowList = `<li class="arrowItem">
-    <span>${arrow}</span>
+    <span>${action}</span>
     </li>`;
 
     arrowList.insertAdjacentHTML("afterbegin", markupArrowList);

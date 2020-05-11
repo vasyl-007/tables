@@ -7,11 +7,20 @@ const bigCube = {
   yMax: 3,
 };
 
+const arrows = [
+  { 1: "&#8593;", description: "вверх" },
+  { 2: "&#8595;", description: "вниз" },
+  { 3: "&#8594;", description: "направо" },
+  { 4: "&#8592;", description: "налево" },
+];
+
 const initialSmallCube = {
   x: 1,
   y: 1,
+  // positionArrow: 'вверх спецсимвол'
 };
 
+// const a = [10, 20, 30];
 const coordXY = [
   [1, 1],
   [1, 2],
@@ -24,6 +33,7 @@ const coordXY = [
   [3, 3],
 ];
 
+console.log(coordXY.indexOf([1])); // 10
 
 const RANDOM_POSITION = 9;
 const ARROWS_LIST = 5;
@@ -45,9 +55,7 @@ const getRandomArrows = (bigCube, initialSmallCube) => {
   let arrows = [];
 
   if (initialSmallCube.x === bigCube.xMin) {
-    
     // x уменьшать нельзя
-
   }
   if (initialSmallCube.x === bigCube.xMax) {
     // x увеличивать нельзя
@@ -58,8 +66,19 @@ const getRandomArrows = (bigCube, initialSmallCube) => {
   if (initialSmallCube.y === bigCube.yMax) {
     // y увеличивать нельзя
   }
-  
-  
+
+  // (1) Xmin Ymin 	влево и вниз нельзя 	(4,2)
+  // (2) Xmin Ynorm	влево нельзя		(4)
+  // (3) Xmin Ymax	влево вверх нельзя 	(4,1)
+
+  // (4) Xnorm Ymin	вниз нельзя		(2)
+  // (5) Xnorm Ynorm ++++			нет исключений
+  // (6) Xnorm Ymax	вверх нельзя		(1)
+
+  // (7) Xmax Ymin	вправо и вниз нельзя	(3,2)
+  // (8) Xmax Ynorm	вправо нельзя		(3)
+  // (9) Xmax Ymax	вправо и вверх нельзя	(3,1)
+
   const min_arrowList = 1;
   arrows.push(
     Math.floor(Math.random() * (ARROWS_LIST - min_arrowList)) + min_arrowList
@@ -76,23 +95,19 @@ const getRandomArrows = (bigCube, initialSmallCube) => {
     let action;
     switch (arrow) {
       case 1:
-        // action = "Hello!";
-        console.log("123");
+        console.log("Вверх");
         action = "&#8593;";
         break;
       case 2:
-        // action = "Hello!";
-        console.log("123");
+        console.log("Вниз");
         action = "&#8595;";
         break;
       case 3:
-        // action = "Hello!";
-        console.log("123");
+        console.log("Направо");
         action = "&#8594;";
         break;
       case 4:
-        // action = "Hello!";
-        console.log("123");
+        console.log("Налево");
         action = "&#8592;";
         break;
       default:

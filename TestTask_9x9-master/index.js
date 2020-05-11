@@ -1,5 +1,30 @@
 "use strict";
 
+const bigCube = {
+  xMin: 1,
+  xMax: 3,
+  yMin: 1,
+  yMax: 3,
+};
+
+const initialSmallCube = {
+  x: 1,
+  y: 1,
+};
+
+const coordXY = [
+  [1, 1],
+  [1, 2],
+  [1, 3],
+  [2, 1],
+  [2, 2],
+  [2, 3],
+  [3, 1],
+  [3, 2],
+  [3, 3],
+];
+
+
 const RANDOM_POSITION = 9;
 const ARROWS_LIST = 5;
 const arrowList = document.getElementById("arrows");
@@ -15,14 +40,36 @@ function getRandomPosition(RANDOM_POSITION) {
 }
 
 getRandomPosition();
-const getRandomArrows = () => {
+
+const getRandomArrows = (bigCube, initialSmallCube) => {
   let arrows = [];
-  for (let i = 0; i < 10; i++) {
-    const min_arrowList = 1;
-    arrows.push(
-      Math.floor(Math.random() * (ARROWS_LIST - min_arrowList)) + min_arrowList
-    );
+
+  if (initialSmallCube.x === bigCube.xMin) {
+    
+    // x уменьшать нельзя
+
   }
+  if (initialSmallCube.x === bigCube.xMax) {
+    // x увеличивать нельзя
+  }
+  if (initialSmallCube.y === bigCube.yMin) {
+    // y уменьшать нельзя
+  }
+  if (initialSmallCube.y === bigCube.yMax) {
+    // y увеличивать нельзя
+  }
+  
+  
+  const min_arrowList = 1;
+  arrows.push(
+    Math.floor(Math.random() * (ARROWS_LIST - min_arrowList)) + min_arrowList
+  );
+  // for (let i = 0; i < 10; i++) {
+  //   const min_arrowList = 1;
+  //   arrows.push(
+  //     Math.floor(Math.random() * (ARROWS_LIST - min_arrowList)) + min_arrowList
+  //   );
+  // }
   console.log("arrows ---->", arrows);
 
   arrows.map((arrow) => {
@@ -58,22 +105,6 @@ const getRandomArrows = () => {
 
     arrowList.insertAdjacentHTML("afterbegin", markupArrowList);
   });
-
-  // console.log("arrowList", arrowList);
-
-  // arr.map((film) => {
-  //   const markup = `
-  // <li data-id="${film.id}" class="films_list-item">
-  //   <img
-  //     src="https://image.tmdb.org/t/p/w500${film.backdrop_path}"
-  //     alt="${film.title} image"
-  //     class="films_list-item-image"
-  //   >
-  //   <h3 class="films_list-item-title">${film.title} (<span>${film.release_date}</span>)</h3>
-  // </li>
-  // `;
-  //   refs.filmsContainer.insertAdjacentHTML("beforeend", markup);
-  // });
 };
 
 getRandomArrows();
